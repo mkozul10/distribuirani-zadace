@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  ubuntu-script-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ubuntu-machine
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./podaci.txt:/home/mpiuser/podaci.txt
+      - ./zadatak1.cc:/home/mpiuser/zadatak1.cc
+      - ./zadatak2.cc:/home/mpiuser/zadatak2.cc
+      - ./zadatak3.cc:/home/mpiuser/zadatak3.cc
+      - ./zadatak4.cc:/home/mpiuser/zadatak4.cc
+      - ./zadatak5.cc:/home/mpiuser/zadatak5.cc
+      - ./zadatak6.cc:/home/mpiuser/zadatak6.cc
+      - ./zadatak7.cc:/home/mpiuser/zadatak7.cc
+      - ./zadatak8.cc:/home/mpiuser/zadatak8.cc
+      - ./zadatak9.cc:/home/mpiuser/zadatak9.cc
+      - ./zadatak10.cc:/home/mpiuser/zadatak10.cc
+      - ./compile.sh:/home/mpiuser/compile.sh
+      - ./execute.sh:/home/mpiuser/execute.sh
+    command: >
+      sh -c "chmod +x compile.sh execute.sh && ./compile.sh && bash"
+
